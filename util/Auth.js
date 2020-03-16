@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken");
-const { jwtSecret } = require("../config");
+const axios = require("axios");
 module.exports = async (req, res, next) => {
   if (
     req.headers.authorization &&
@@ -8,10 +8,9 @@ module.exports = async (req, res, next) => {
     const token = req.headers.authorization.split("Bearer ")[1];
     try {
       req.user = {};
-      const decoded = jwt.verify(token, jwtSecret);
-      console.log(decoded.handle);
-      req.user.handle = decoded.handle;
-      req.user.imageUrl = decoded.imageUrl;
+      const decoded = jwt.verify(token, process.env.jwtSecret);
+      axios.defaults.headers.handle = decoded.handle;
+      axios.defaults.headers.imageUrl = decoded.imageUrl;
       return next();
     } catch (error) {
       console.log(error);
