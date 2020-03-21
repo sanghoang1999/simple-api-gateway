@@ -3,8 +3,8 @@ const router = express.Router();
 const apiAdapter = require("../util/apiWraper");
 const Auth = require("../util/Auth");
 const axios = require("axios");
-// const base_url = "https://asia-east2-social-app-f685d.cloudfunctions.net/api";
-const base_url = "http://localhost:5000/social-app-f685d/asia-east2/api";
+const base_url = "https://asia-east2-social-app-f685d.cloudfunctions.net/api";
+//const base_url = "http://localhost:5000/social-app-f685d/asia-east2/api";
 router.post("/user/login", async (req, res) => {
   try {
     const data = await axios.post(base_url + req.path, req.body);
