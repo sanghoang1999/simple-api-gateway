@@ -7,7 +7,7 @@ app.use(cors());
 app.use("/social", require("./controller/soicalService"));
 app.use("/notifications", require("./controller/notisService"));
 
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 4500;
 app.listen(PORT, () => {
   console.log("listening");
 });

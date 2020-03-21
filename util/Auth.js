@@ -10,7 +10,7 @@ module.exports = async (req, res, next) => {
       req.user = {};
       const decoded = jwt.verify(token, process.env.jwtSecret);
       axios.defaults.headers.handle = decoded.handle;
-      axios.defaults.headers.imageUrl = decoded.imageUrl;
+      axios.defaults.headers.imageurl = decoded.imageurl;
       return next();
     } catch (error) {
       console.log(error);
