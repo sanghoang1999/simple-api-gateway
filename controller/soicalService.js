@@ -23,7 +23,7 @@ router.post("/user/signup", async (req, res) => {
     res.send(error);
   }
 });
-router.post("/user/image", async (req, res) => {
+router.post("/user/image", Auth, async (req, res) => {
   try {
     const data = await axios.post(base_url + req.path, req.body);
     res.send(data.data);
